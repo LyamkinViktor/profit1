@@ -25,7 +25,9 @@
 </form>
 
 <p>
-    <a href="/index.php">На главную</a>
+    <a href="/gallery.php">В галерею</a><br>
+    <a href="/guestBook.php">Гостевая книга</a><br>
+    <a href="/index.php">Главная страница</a><br>
 </p>
 
 </body>

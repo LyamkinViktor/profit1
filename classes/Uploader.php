@@ -32,11 +32,11 @@ class Uploader
                 if (true == in_array($this->file['type'], $mimeTypes)) {
 
                     move_uploaded_file
-                    ($this->file['tmp_name'], __DIR__ . '/../gallery/img/' . $this->file['name']);
+                    ($this->file['tmp_name'], __DIR__ . '/../img/' . $this->file['name']);
 
                     file_put_contents
-                    (__DIR__ . '/../gallery/log.txt', $_SESSION['User'] .'@-@'. date('m.d.y')
-                        .'@-@'. $this->file['name']);
+                    (__DIR__ . '/../log.txt', $_SESSION['login'] .'@-@'. date('m.d.y')
+                        .'@-@'. $this->file['name'] . "\n", FILE_APPEND);
                 }
             }
         }

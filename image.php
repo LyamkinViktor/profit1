@@ -1,28 +1,7 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Picture</title>
-</head>
-<body>
-
 <?php
+require_once __DIR__ . '/classes/Gallery.php';
 
 $id = $_GET['id'];
+$gallery = new Gallery();
 
-$pictures = include __DIR__ . '/galleryData.php';
-
-?>
-
-
-<div>
-    <img src="/gallery/img/<?php echo $pictures[$id]; ?>">
-</div>
-
-<a href="/gallery.php">Назад</a>
-
-</body>
-</html>
+include __DIR__ . '/templates/image.php';

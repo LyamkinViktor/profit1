@@ -12,7 +12,7 @@ class GuestBook
      */
     public function __construct()
     {
-        $this->path = __DIR__ . '/../guestbook/GuestBookData.txt';
+        $this->path = __DIR__ . '/../guestBookData.txt';
         $lines = file($this->path, FILE_IGNORE_NEW_LINES);
         foreach ($lines as $line) {
             $this->data[] = new GuestBookRecord($line);
