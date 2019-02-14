@@ -5,12 +5,19 @@ class Uploader
     public $formName;
     protected $file;
 
-
+    /**
+     * Uploader constructor.
+     * @param $formName
+     */
     public function __construct($formName)
     {
         $this->formName = $formName;
     }
 
+    /**
+     * @return bool
+     * проверяет загружен ли файл
+     */
     public function isUploaded()
     {
         if (isset($_FILES[$this->formName])) {
@@ -20,6 +27,10 @@ class Uploader
         }
     }
 
+    /**
+     * перемещает файл из временного в постоянное место хранения,
+     * записывает данные в лог
+     */
     public function upload()
     {
         if (true == $this->isUploaded()) {
