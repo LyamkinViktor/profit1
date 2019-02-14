@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/../functions.php';
+require_once __DIR__ . '/functions.php';
 ?>
 
 <!doctype html>
@@ -15,11 +15,11 @@ require_once __DIR__ . '/../functions.php';
 <body>
 
 <?php
-$pictures = include __DIR__ . '/data.php';
+$pictures = include __DIR__ . '/galleryData.php';
 
 foreach ($pictures as $key => $pic) {
     if ($pic != '.' && $pic != '..') { ?>
-    <a href="/gallery/image.php?id=<?php echo $key; ?>">
+    <a href="/image.php?id=<?php echo $key; ?>">
         <img src="/gallery/img/<?php echo $pic; ?>" width="350" height="250">
     </a>
 <?php }
@@ -27,7 +27,7 @@ foreach ($pictures as $key => $pic) {
 
 <?php
 if (null != getCurrentUser() ) {?>
-<form action="/gallery/upload.php" method="post" enctype="multipart/form-data">
+<form action="/upload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="image">
     <button type="submit">Загрузить</button>
 </form>
@@ -35,8 +35,8 @@ if (null != getCurrentUser() ) {?>
 
 
 <p>
-    <a href="/index.php">На главную</a><br>
-    <a href="/guestbook/book.php">Гостевая книга</a>
+    <a href="/calculator.php">На главную</a><br>
+    <a href="/guestBook.php">Гостевая книга</a>
 </p>
 
 </body>

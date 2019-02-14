@@ -1,22 +1,51 @@
 <?php
 
-include __DIR__ . '/TextFile.php';
+require_once __DIR__ . '/GuestBookRecord.php';
 
-class GuestBook extends TextFile
+class GuestBook
 {
-    public $text;
+    public $path;
+    protected $data = [];
 
-    public function append($text)
+    /**
+     * GuestBook constructor.
+     */
+    public function __construct()
     {
-        $this->text = $text;
-        $this->content[] = $text;
+        $this->path = __DIR__ . '/../guestbook/GuestBookData.txt';
+        $lines = file($this->path, FILE_IGNORE_NEW_LINES);
+        foreach ($lines as $line) {
+            $this->data[] = new GuestBookRecord($line);
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getRecords() {
+
+        return $this->data;
+    }
+
+    /**
+     * @param GuestBookRecord $record
+     * @return $this
+     */
+    public function append(GuestBookRecord $record)
+    {
+        $this->data[] = $record;
         return $this;
     }
 
+    /**
+     * Сохраняет сообщение в бд
+     */
     public function save()
     {
-        $data = implode(PHP_EOL, $this->getData());
-        file_put_contents($this->path, $data);
-        return $this;
+        $lines = [];
+        foreach ($this->data as $record) {
+            $lines[] = $record->getMessage();
+        }
+        file_put_contents($this->path, implode("\n", $lines));
     }
 }

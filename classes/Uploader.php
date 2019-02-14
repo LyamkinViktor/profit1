@@ -35,7 +35,7 @@ class Uploader
                     ($this->file['tmp_name'], __DIR__ . '/../gallery/img/' . $this->file['name']);
 
                     file_put_contents
-                    (__DIR__ . '/../gallery/log.txt', $_SESSION['login'] .'@-@'. date('m.d.y')
+                    (__DIR__ . '/../gallery/log.txt', $_SESSION['User'] .'@-@'. date('m.d.y')
                         .'@-@'. $this->file['name']);
                 }
             }

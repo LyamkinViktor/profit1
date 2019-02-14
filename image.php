@@ -13,7 +13,7 @@
 
 $id = $_GET['id'];
 
-$pictures = include __DIR__ . '/data.php';
+$pictures = include __DIR__ . '/galleryData.php';
 
 ?>
 
@@ -22,7 +22,7 @@ $pictures = include __DIR__ . '/data.php';
     <img src="/gallery/img/<?php echo $pictures[$id]; ?>">
 </div>
 
-<a href="/gallery/index.php">Назад</a>
+<a href="/gallery.php">Назад</a>
 
 </body>
 </html>

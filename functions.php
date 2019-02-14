@@ -1,6 +1,6 @@
 <?php
-
-//пусть возвращает массив всех пользователей и хэшей их паролей
+/*
+//возвращает массив всех пользователей и хэшей их паролей
 function getUsersList() {
     return [
         'admin' => '$2y$10$3s60pVXe08tp11kQA1wSV.8jzh6XCAU6VRR1hDGl.8SnDJi5uQQb6', //12345
@@ -28,7 +28,7 @@ function checkPassword($login, $password) {
     return false;
 }
 
-$password = '12345';
+//$password = '12345';
 
 //которая возвращает либо имя вошедшего на сайт пользователя, либо null
 function getCurrentUser() {
